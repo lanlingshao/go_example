@@ -3,9 +3,14 @@ package main
 import "fmt"
 
 func main() {
+	test1()
+}
+
+func test1() {
 	c := make(chan int, 3)
 	for i := 1; i <= 3; i++ {
 		c <- i
+		fmt.Printf("%+v->channel\n", i)
 	}
 	close(c)
 	for j := 1; j <= 4; j++ {
